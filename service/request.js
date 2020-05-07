@@ -3,7 +3,7 @@ let request = require('request');
 function get(cb){
 
     request({
-                uri: `http://${process.env.API}:4000/board/`,
+                uri: `${process.env.API}:4000/board/`,
                 method: "GET"
             }
     , (err, res, body) => {
@@ -17,7 +17,7 @@ function get(cb){
 function post(form, cb){
 
     request({
-                uri: `http://${process.env.API}:4000/board/add`,
+                uri: `${process.env.API}:4000/board/add`,
                 method: "POST",
                 form: {
                     name: form.name,
