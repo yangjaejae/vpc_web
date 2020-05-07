@@ -15,5 +15,5 @@ app.use(bodyparser.urlencoded({extended:false}));
 const boardRouter = require('./routes/board');
 app.use('/board', boardRouter);
 
-const port = 3000;
+const port = 8080;
 app.listen(port, () => console.log(`start with port: ${port}`));
