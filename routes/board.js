@@ -5,7 +5,11 @@ let router = express.Router();
 let controller = require('../controller/controller')
 
 // Home
-// router.get('/', controller.list);
+
+router.get('/health', function(req, res){
+  console.log('health');
+})
+
 router.get('/', function(req, res){
     
     controller.list(function(boardList){
@@ -27,12 +31,11 @@ router.post('/add', function(req, res){
         email: req.body.email
     }
     
-    controller.add(form, function(err, res){
-        if(!err){
-            res.redirect('/');
-        }
+    controller.add(form, function(res){
+        console.log("res: ", res);
     })
-
+    
+    res.redirect('/board');
 });
 
 module.exports = router;
