@@ -5,11 +5,6 @@ let router = express.Router();
 let controller = require('../controller/controller')
 
 // Home
-
-router.get('/health', function(req, res){
-  console.log('health');
-})
-
 router.get('/', function(req, res){
     
     controller.list(function(boardList){
@@ -18,10 +13,7 @@ router.get('/', function(req, res){
                 board: boardList
             }
         );
-
     });
-
-
 });
 
 router.post('/add', function(req, res){
