@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: \
-    destination: ~/vpc_web
+  - source: /
+    destination: /home/ec2-user/vpc_web
 hooks:
   ApplicationStart:
     - location: start.sh
