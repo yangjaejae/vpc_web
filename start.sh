@@ -12,15 +12,15 @@ function restartContainers() {
 }
 
 function rebuildDocker() {
-    echo "Stop and Remove current LOTTO Server docker container..."
+    echo "Stop and Remove current WEB Server docker container..."
     docker rm -f $(docker ps -aqf name="${DOCKER_CONTAINER_NAME}")
 
     if [[ "$(docker images -q ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} 2> /dev/null)" != "" ]]; then
-        echo "Remove E_EOS_API Server docker IMAGE!!.."
+        echo "Remove WEB Server docker IMAGE!!.."
         docker rmi -f ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
     fi
 
-    echo "Build E_EOS_API Server image.."
+    echo "Build WEB Server image.."
     docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} .
     docker-compose -f ${COMPOSE_FILE} up -d 2>&1
 }
@@ -30,11 +30,11 @@ function askProceed () {
   read -p "Remove CA-Registry Server images and container to rebuild those items(Y) or just restart container(N) ? [Y/N] " ans
   case "$ans" in
     y|Y|"" )
-      echo "Remove and rebuild docker container of LOTTO Server"
+      echo "Remove and rebuild docker container of WEB Server"
       rebuildDocker
     ;;
     n|N )
-      echo "Restart docker container of LOTTO Server..."
+      echo "Restart docker container of WEB Server..."
       restartContainers
     ;;
     * )
