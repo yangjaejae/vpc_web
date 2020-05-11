@@ -5,7 +5,7 @@ let router = express.Router();
 
 // health
 router.get('/', function(req, res){
-    res.send({health: 'good'});
+    res.send({health: 'goooooood'});
 });
 
 module.exports = router;
