@@ -14,5 +14,6 @@ docker run -d \
            --name="web" \
            -v ~/vpc_web/:/usr/src/app \
            -w "/usr/src/app" \
+           --restart=on-failure \
            ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} \
            npm start
