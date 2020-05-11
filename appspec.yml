@@ -6,4 +6,4 @@ files:
 hooks:
   ApplicationStart:
     - location: start.sh
-      timeout: 3600
+      timeout: 30
