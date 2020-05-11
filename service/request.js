@@ -1,14 +1,18 @@
 let request = require('request');
+require('dotenv').config()
 
 function get(cb){
 
     request({
-                uri: `http://${process.env.API}/board/`,
+                url: `http://${process.env.API}/board`,
                 method: "GET"
             }
     , (err, res, body) => {
+	console.log("err: ", err)
+	console.log("res: ", res)
+	console.log("body: ", body)
         let boardList = JSON.parse(body);
-        // console.log(boardList)
+        //console.log(boardList)
         cb(boardList);
     });
 
@@ -17,7 +21,7 @@ function get(cb){
 function post(form, cb){
 
     request({
-                uri: `http://${process.env.API}/board/add`,
+                url: `http://${process.env.API}/board/add`,
                 method: "POST",
                 form: {
                     name: form.name,
