@@ -10,15 +10,12 @@ hooks:
   BeforeInstall:
     - location: ./remove-image.sh
       timeout: 30
-      runas: ec2-user
   AfterInstall:
     - location: ./docker-build.sh
       timeout: 30
-      runas: ec2-user
   ApplicationStart:
     - location: ./start.sh
       timeout: 30
-      runas: ec2-user
 
 ## application stop 
 ## - rm -rf ./*
