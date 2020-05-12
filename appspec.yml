@@ -5,23 +5,28 @@ files:
     destination: /home/ec2-user/vpc_web
 hooks:
   ApplicationStop:
-    - location: ./deploy/remove_file.sh
+    - location: ./remove-file_stop-docker.sh
+      timeout: 30
+      runas: ec2-user
+  BeforeInstall:
+    - location: ./remove-image.sh
       timeout: 30
       runas: ec2-user
   AfterInstall:
-    - location: ./deploy/remove_docker.sh
+    - location: ./docker-build.sh
       timeout: 30
       runas: ec2-user
   ApplicationStart:
-    - location: ./deploy/start.sh
+    - location: ./start.sh
       timeout: 30
       runas: ec2-user
 
 ## application stop 
 ## - rm -rf ./*
+## - docker stop & docker rm
+## before install
+## - docker rmi 
 ## after install
-## - docker stop & docker rm 
-## application start
-## - docker rmi
 ## - docker build
+## application start
 ## - docker start
