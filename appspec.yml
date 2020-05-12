@@ -7,15 +7,15 @@ hooks:
   ApplicationStop:
     - location: ./deploy/remove_file.sh
       timeout: 30
-      # runas: ec2-user
+      runas: ec2-user
   AfterInstall:
     - location: ./deploy/remove_docker.sh
       timeout: 30
-      # runas: ec2-user
+      runas: ec2-user
   ApplicationStart:
     - location: ./deploy/start.sh
       timeout: 30
-      # runas: ec2-user
+      runas: ec2-user
 
 ## application stop 
 ## - rm -rf ./*
