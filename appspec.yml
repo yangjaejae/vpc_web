@@ -5,15 +5,11 @@ files:
     destination: /home/ec2-user/vpc_web
 hooks:
   ApplicationStop:
-    - location: ./stop-docker.sh
-      timeout: 30
-  DownloadBundle: ##
+  DownloadBundle:
   BeforeInstall:
-    - location: ./remove-image.sh
-      timeout: 30
-  Install: ##
+  Install:
   AfterInstall:
-    - location: ./docker-build.sh
+    - location: ./ready.sh
       timeout: 30
   ApplicationStart:
     - location: ./start.sh
