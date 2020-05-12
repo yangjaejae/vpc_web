@@ -12,4 +12,4 @@ docker run -d \
            -w "/usr/src/app" \
            --restart=on-failure \
            ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} \
-           npm start
+           bash -c "npm install && npm start"
