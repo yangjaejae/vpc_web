@@ -4,6 +4,8 @@ files:
   - source: /
     destination: /home/ec2-user/vpc_web
 hooks:
+  BeforeBlockTraffic:
+  BlockTraffic:
   ApplicationStop:
   DownloadBundle:
   BeforeInstall:
@@ -14,6 +16,10 @@ hooks:
   ApplicationStart:
     - location: ./start.sh
       timeout: 30
+  ValidateService:
+  BeforeAllowTraffic:
+  AllowTraffic:
+  AfterAllowTraffic:
 
 ## application stop 
 ## - docker stop & docker rm
