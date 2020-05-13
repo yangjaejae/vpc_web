@@ -4,7 +4,7 @@ require('dotenv').config()
 function get(cb){
 
     request({
-                url: `${process.env.API_URL}:${process.env.API_PORT}/board`,
+                url: `http://${process.env.API_URL}:${process.env.API_PORT}/board`,
                 method: "GET"
             }
     , (err, res, body) => {
@@ -21,7 +21,7 @@ function get(cb){
 function post(form, cb){
 
     request({
-                url: `${process.env.API_URL}:${process.env.API_PORT}/board/add`,
+                url: `http://${process.env.API_URL}:${process.env.API_PORT}/board/add`,
                 method: "POST",
                 form: {
                     name: form.name,
